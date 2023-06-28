@@ -6,7 +6,7 @@ module.exports = app;
 
 // example api route
 app.get("/api/test", (req, res, next) => {
-  console.log("Hit /api/test");
+  console.log(req.url);
   res.send("Hello");
 });
 
@@ -15,6 +15,10 @@ app.get("/", (req, res, next) => {
 });
 
 app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+app.use("*", (req, res, next) => {
+  res.send("Hit" + req.url);
+});
 
 app.listen(8080, () => {
   console.log("listening to port 8080");
