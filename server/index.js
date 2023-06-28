@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const path = require("path");
 
+module.exports = app;
+
 // example api route
 app.get("/api/test", (req, res, next) => {
   console.log("Hit /api/test");
